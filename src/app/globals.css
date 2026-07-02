@@ -1,24 +1,52 @@
+@import "tailwindcss";
+
 :root {
   --font-heading: var(--font-playfair);
   --font-body: var(--font-inter);
 
+  /* Shared Theme Variables */
   --background: #0f172a;
   --foreground: #ffffff;
   --primary: #c9a227;
   --secondary: #1e293b;
 }
 
-body {
-  font-family: var(--font-body);
-  background: #ffffff;
-  color: #111827;
+/* Tailwind v4 CSS Theme Configuration */
+@theme {
+  /* Registering custom keyframes */
+  --keyframes-slow-pan: {
+    0% { transform: scale(1.03) translate(0px, 0px); }
+    100% { transform: scale(1.08) translate(-10px, -5px); }
+  };
+  --keyframes-fade-in-up: {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  };
+  --keyframes-fade-in: {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  };
+  --keyframes-scroll-line: {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  };
+
+  /* Mapping them to utilities (e.g., animate-slow-pan) */
+  --animate-slow-pan: slow-pan 25s ease-out infinite alternate;
+  --animate-fade-in-up: fade-in-up 1s ease-out forwards;
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  --animate-scroll-line: scroll-line 2s infinite;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
+body {
+  font-family: var(--font-body), sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), serif;
 }
