@@ -14,7 +14,7 @@ export const transporter = nodemailer.createTransport({
 export async function sendOTP(email: string, otp: string) {
   const otpDigits = otp.split("");
 
-  await transporter.sendMail({
+const info = await transporter.sendMail({
     from: `"Sreenidhi Interiors" <${process.env.GMAIL_USER}>`,
     to: email,
     subject: `Your Sreenidhi Interiors Verification Code — [${otp}]`,
@@ -131,4 +131,8 @@ export async function sendOTP(email: string, otp: string) {
       </html>
     `,
   });
+  console.log("Message ID:", info.messageId);
+console.log("Accepted:", info.accepted);
+console.log("Rejected:", info.rejected);
+console.log("Response:", info.response);
 }
