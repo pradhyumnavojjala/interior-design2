@@ -131,8 +131,8 @@ const info = await transporter.sendMail({
       </html>
     `,
   });
-  console.log("Message ID:", info.messageId);
-console.log("Accepted:", info.accepted);
-console.log("Rejected:", info.rejected);
-console.log("Response:", info.response);
+  console.log("EMAIL SENT");
+  console.log("Accepted:", info.accepted);
+  console.log("Rejected:", info.rejected);
+  console.log("Response:", info.response);
 }
