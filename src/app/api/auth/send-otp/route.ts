@@ -9,34 +9,41 @@ function generateOTP(): string {
 
 export async function POST(request: Request) {
   try {
+    console.log("========== SEND OTP START ==========");
+
     const { email } = await request.json();
+    console.log("Email:", email);
 
     const normalizedEmail = email?.trim().toLowerCase();
+    console.log("Normalized:", normalizedEmail);
 
     if (!normalizedEmail) {
+      console.log("No email provided");
       return NextResponse.json(
         {
           success: false,
           message: "Email is required.",
         },
-        {
-          status: 400,
-        }
+        { status: 400 }
       );
     }
 
     const otp = generateOTP();
+    console.log("OTP:", otp);
 
-    // Store as NUMBER (milliseconds)
     const expiresAt = Date.now() + 5 * 60 * 1000;
 
+    console.log("Saving to Firestore...");
     await setDoc(doc(db, "verificationCodes", normalizedEmail), {
       code: otp,
       expiresAt,
       createdAt: serverTimestamp(),
     });
+    console.log("Firestore Success");
 
+    console.log("Calling sendOTP...");
     await sendOTP(normalizedEmail, otp);
+    console.log("sendOTP Finished");
 
     return NextResponse.json({
       success: true,
@@ -50,9 +57,7 @@ export async function POST(request: Request) {
         success: false,
         message: "Something went wrong.",
       },
-      {
-        status: 500,
-      }
+      { status: 500 }
     );
   }
 }
