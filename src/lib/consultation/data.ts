@@ -188,8 +188,7 @@ export const propertyStatus = [
 // ==============================
 
 export const budgetOptions = [
-  "Under ₹5 Lakhs",
-  "₹5 - ₹10 Lakhs",
+  "₹10 Lakhs",
   "₹10 - ₹20 Lakhs",
   "₹20 - ₹35 Lakhs",
   "₹35 - ₹50 Lakhs",
@@ -202,8 +201,7 @@ export const budgetOptions = [
 // ==============================
 
 export const propertySizes = [
-  "Under 500 sq.ft",
-  "500 - 1000 sq.ft",
+  "1000 sq.ft",
   "1000 - 1500 sq.ft",
   "1500 - 2500 sq.ft",
   "2500+ sq.ft",
@@ -226,21 +224,11 @@ export const timelineOptions = [
 // ==============================
 
 export const bhkOptions = [
-  "1 BHK",
   "2 BHK",
   "3 BHK",
   "4 BHK",
   "Villa",
   "Commercial",
-];
-
-// ==============================
-// PARKING
-// ==============================
-
-export const parkingOptions = [
-  "Yes",
-  "No",
 ];
 
 // ==============================

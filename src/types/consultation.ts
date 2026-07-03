@@ -43,15 +43,7 @@ export interface ConsultationData {
 
   // Uploaded Images
   uploads: {
-    livingRoom: string[];
-    kitchen: string[];
-    bedroom: string[];
-    bathroom: string[];
-    diningRoom: string[];
-    balcony: string[];
     floorPlan: string[];
-    referenceImages: string[];
-    otherImages: string[];
   };
 
   acceptedTerms: boolean;

@@ -6,7 +6,6 @@ import { useConsultation } from "@/context/ConsultationContext";
 
 import {
   bhkOptions,
-  parkingOptions,
   consultationTypes,
   languages,
 } from "@/lib/consultation/data";
@@ -31,20 +30,6 @@ export default function PropertyPage() {
   }
 
   function handleContinue() {
-    if (!data.property.ownerName) {
-      alert("Owner name is required.");
-      return;
-    }
-
-    if (!data.property.phone) {
-      alert("Phone number is required.");
-      return;
-    }
-
-    if (!data.property.email) {
-      alert("Email is required.");
-      return;
-    }
 
     if (!data.property.address) {
       alert("Property address is required.");
@@ -68,11 +53,6 @@ export default function PropertyPage() {
 
     if (!data.property.bhk) {
       alert("Select BHK.");
-      return;
-    }
-
-    if (!data.property.parking) {
-      alert("Select parking.");
       return;
     }
 
@@ -131,52 +111,6 @@ export default function PropertyPage() {
           </div>
 
           <div className="space-y-20">
-
-            {/* OWNER DETAILS SECTION */}
-            <section className="grid gap-8 lg:grid-cols-12 items-start group">
-              <div className="lg:col-span-4 lg:sticky lg:top-8">
-                <SectionTitle title="Owner Details" />
-                <p className="text-xs text-zinc-500 mt-1 font-light tracking-wide max-w-xs hidden lg:block">
-                  Provide primary point-of-contact details for spatial access verification tracking.
-                </p>
-              </div>
-
-              <div className="lg:col-span-8 grid gap-6 sm:grid-cols-2 bg-zinc-900/20 border border-white/5 p-6 sm:p-8 rounded-2xl transition-all duration-500 group-hover:border-white/10 group-hover:bg-zinc-900/30">
-                <div className="sm:col-span-2">
-                  <InputField
-                    label="Owner Name"
-                    value={data.property.ownerName}
-                    onChange={(value) =>
-                      updateSection("property", {
-                        ownerName: value,
-                      })
-                    }
-                  />
-                </div>
-
-                <InputField
-                  label="Phone Number"
-                  value={data.property.phone}
-                  onChange={(value) =>
-                    updateSection("property", {
-                      phone: value,
-                    })
-                  }
-                />
-
-                <InputField
-                  label="Email"
-                  type="email"
-                  value={data.property.email}
-                  onChange={(value) =>
-                    updateSection("property", {
-                      email: value,
-                    })
-                  }
-                />
-              </div>
-            </section>
-
 
             {/* ADDRESS SECTION */}
             <section className="grid gap-8 lg:grid-cols-12 items-start group">
@@ -276,24 +210,6 @@ export default function PropertyPage() {
                         onClick={() =>
                           updateSection("property", {
                             bhk: item,
-                          })
-                        }
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="border-t border-white/5 pt-8 space-y-4">
-                  <SectionTitle title="Parking Capabilities" />
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {parkingOptions.map((item) => (
-                      <RadioCard
-                        key={item}
-                        title={item}
-                        selected={data.property.parking === item}
-                        onClick={() =>
-                          updateSection("property", {
-                            parking: item,
                           })
                         }
                       />

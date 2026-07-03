@@ -193,21 +193,6 @@ const response = await fetch("/api/consultation", {
             <div className="grid gap-4 md:grid-cols-2">
 
               <p>
-                <strong>Owner Name:</strong>{" "}
-                {data.property.ownerName}
-              </p>
-
-              <p>
-                <strong>Phone:</strong>{" "}
-                {data.property.phone}
-              </p>
-
-              <p>
-                <strong>Email:</strong>{" "}
-                {data.property.email}
-              </p>
-
-              <p>
                 <strong>Address:</strong>{" "}
                 {data.property.address}
               </p>
@@ -240,11 +225,6 @@ const response = await fetch("/api/consultation", {
               <p>
                 <strong>BHK:</strong>{" "}
                 {data.property.bhk}
-              </p>
-
-              <p>
-                <strong>Parking:</strong>{" "}
-                {data.property.parking}
               </p>
 
             </div>

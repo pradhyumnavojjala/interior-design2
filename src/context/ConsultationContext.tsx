@@ -70,15 +70,7 @@ const initialData: ConsultationData = {
   },
 
   uploads: {
-    livingRoom: [],
-    kitchen: [],
-    bedroom: [],
-    bathroom: [],
-    diningRoom: [],
-    balcony: [],
     floorPlan: [],
-    referenceImages: [],
-    otherImages: [],
   },
 
   acceptedTerms: false,

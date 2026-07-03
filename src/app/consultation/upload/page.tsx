@@ -81,57 +81,19 @@ export default function UploadPage() {
           </div>
 
           {/* DYNAMIC SPATIAL ARCHITECTURE GRID */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            
-            <ImageUploader
-              title="Living Room"
-              onChange={(files) => saveFiles("livingRoom", files)}
-            />
+         <div className="max-w-2xl mx-auto">
 
-            <ImageUploader
-              title="Kitchen"
-              onChange={(files) => saveFiles("kitchen", files)}
-            />
+  <ImageUploader
+    title="Floor Plan"
+    onChange={(files) => saveFiles("floorPlan", files)}
+  />
 
-            <ImageUploader
-              title="Bedroom"
-              onChange={(files) => saveFiles("bedroom", files)}
-            />
+  <p className="mt-4 text-center text-sm text-zinc-500">
+    Upload your property's floor plan (PDF or image). This helps our designers
+    understand the layout before the consultation.
+  </p>
 
-            <ImageUploader
-              title="Bathroom"
-              onChange={(files) => saveFiles("bathroom", files)}
-            />
-
-            <ImageUploader
-              title="Dining Room"
-              onChange={(files) => saveFiles("diningRoom", files)}
-            />
-
-            <ImageUploader
-              title="Balcony"
-              onChange={(files) => saveFiles("balcony", files)}
-            />
-
-            {/* Accent Highlighted Blueprints Layer Card Blocks */}
-            <div className="sm:col-span-2 lg:col-span-1">
-              <ImageUploader
-                title="Floor Plan"
-                onChange={(files) => saveFiles("floorPlan", files)}
-              />
-            </div>
-
-            <ImageUploader
-              title="Reference Images"
-              onChange={(files) => saveFiles("referenceImages", files)}
-            />
-
-            <ImageUploader
-              title="Other Images"
-              onChange={(files) => saveFiles("otherImages", files)}
-            />
-
-          </div>
+</div>
 
           {/* BUTTON INTERFACE ALIGNMENT DECK */}
           <div className="pt-8 border-t border-white/5 flex justify-end">
