@@ -48,17 +48,6 @@ export default function Hero() {
               We transform ordinary spaces into timeless masterpieces that blend 
               unparalleled elegance, tactile comfort, and effortless modern functionality.
             </p>
-
-            {/* Interactive Luxury Buttons */}
-            <div className="mt-10 flex flex-wrap gap-4 sm:gap-5">
-              <button className="group relative overflow-hidden rounded-full bg-amber-500 px-9 py-4 text-sm font-semibold tracking-wider uppercase text-zinc-950 transition-all duration-300 hover:bg-amber-400 hover:shadow-[0_0_35px_rgba(245,158,11,0.25)]">
-                Book Consultation
-              </button>
-
-              <button className="rounded-full border border-white/20 bg-white/5 px-9 py-4 text-sm font-semibold tracking-wider uppercase text-white backdrop-blur-md transition-all duration-300 hover:border-white hover:bg-white hover:text-zinc-950">
-                View Projects
-              </button>
-            </div>
           </div>
 
           {/* RIGHT SIDE: ADVANCED INTERIOR GALLERY GRID */}
