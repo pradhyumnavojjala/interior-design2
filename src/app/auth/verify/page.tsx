@@ -79,14 +79,24 @@ useEffect(() => {
       return;
     }
 
-    // Save login session (temporary)
-    sessionStorage.setItem("authenticated", "true");
+    // Save login for 5 days
+localStorage.setItem(
+  "auth",
+  JSON.stringify({
+    authenticated: true,
+    email,
+    loginTime: Date.now(),
+  })
+);
 
-    if (data.isNewUser) {
-      router.push("/auth/details");
-    } else {
-      router.push("/consultation");
-    }
+// Remove old temporary session
+sessionStorage.removeItem("authenticated");
+
+if (data.isNewUser) {
+  router.push("/auth/details");
+} else {
+  router.push("/");
+}
   } catch (err) {
     console.error(err);
     setError("Something went wrong.");
