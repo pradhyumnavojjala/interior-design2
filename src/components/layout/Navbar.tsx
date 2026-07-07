@@ -21,15 +21,25 @@ const [email, setEmail] = useState("");
   const profileRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-  const auth = sessionStorage.getItem("authenticated") === "true";
-
-  setLoggedIn(auth);
-
-  if (auth) {
-    setFirstName(sessionStorage.getItem("firstName") || "");
-    setEmail(sessionStorage.getItem("email") || "");
-  }
-}, []);
+    const authData = localStorage.getItem("auth");
+  
+    if (!authData) return;
+  
+    const auth = JSON.parse(authData);
+  
+    const FIVE_DAYS = 5 * 24 * 60 * 60 * 1000;
+  
+    if (
+      auth.authenticated &&
+      Date.now() - auth.loginTime < FIVE_DAYS
+    ) {
+      setLoggedIn(true);
+      setEmail(auth.email || "");
+      setFirstName(auth.firstName || "");
+    } else {
+      localStorage.removeItem("auth");
+    }
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -49,9 +59,7 @@ const [email, setEmail] = useState("");
   }, []);
 
   function handleLogout() {
-    sessionStorage.removeItem("authenticated");
-    sessionStorage.removeItem("email");
-
+    localStorage.removeItem("auth");
     window.location.href = "/";
   }
 

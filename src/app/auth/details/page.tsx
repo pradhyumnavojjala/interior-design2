@@ -57,7 +57,9 @@ export default function DetailsPage() {
 
   if (!validate()) return;
 
-  const email = sessionStorage.getItem("email");
+  const auth = JSON.parse(localStorage.getItem("auth") || "{}");
+
+  const email = auth.email;
 
   if (!email) {
     router.replace("/auth");
@@ -87,14 +89,13 @@ export default function DetailsPage() {
       return;
     }
 
-    // Temporary session
-    sessionStorage.setItem("authenticated", "true");
+    const auth = JSON.parse(localStorage.getItem("auth") || "{}");
 
-    sessionStorage.setItem("firstName", form.firstName);
-sessionStorage.setItem("lastName", form.lastName);
-sessionStorage.setItem("email", email);
-sessionStorage.setItem("phone", form.phone);
-sessionStorage.setItem("authenticated", "true");
+auth.firstName = form.firstName;
+auth.lastName = form.lastName;
+auth.phone = form.phone;
+
+localStorage.setItem("auth", JSON.stringify(auth));
 
 
     // Don't allow going back to Details
